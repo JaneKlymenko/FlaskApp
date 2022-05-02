@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+{% extends 'base.html'%}
+
+{% block title %}
+Сards data
+{% endblock%}
+
+{% block body %}
+<div class="container mt-5" >
+    <h2>Cards data</h2>
+    <p>Fetching data from database </p>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Серія</th>
+            <th>Номер</th>
+            <th>Дата створення</th>
+            <th>Iм'я</th>
+            <th>Прізвище</th>
+            <th>Хоббі</th>
+            <th>Спеціальність</th>
+            <th>Університет</th>
+            <th>Группа</th>
+            <th>Рік початку</th>
+            <th>Рік закінчення</th>
+            <th>Назва дипломної</th>
+        </tr>
+        </thead>
+        <tbody>
+
+	  	{% for el in carddata %}
+	  	<tr>
+	  		<td>{{el.id}}</td>
+	  		<td>{{el.card_series}}</td>
+	  		<td>{{el.card_number}}</td>
+            <td>{{el.creation_date}}</td>
+            <td>{{el.firstname}}</td>
+	  		<td>{{el.lastname}}</td>
+	  		<td>{{el.ho_bbi}}</td>
+            <td>{{el.speciality}}</td>
+            <td>{{el.university}}</td>
+	  		<td>{{el.study_group}}</td>
+	  		<td>{{el.start_study_year}}</td>
+            <td>{{el.end_study_year}}</td>
+	  		<td>{{el.thesis}}</td>
+	  	</tr>
+	  	{% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock%}
+
+{% block but_log %}
+<a class="btn btn-outline-primary" href="/logout">Вихід</a>
+{% endblock%}
